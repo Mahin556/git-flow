@@ -1,0 +1,29 @@
+name: Branch Naming Check
+
+on:
+  pull_request:
+    branches: [develop, main]
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          BASE="${{ github.base_ref }}"
+          echo "PR from $BRANCH into $BASE"
+
+          if [[ "$BASE" == "develop" ]]; then
+            if [[ ! "$BRANCH" =~ ^(feature|release|hotfix)/ ]]; then
+              echo "❌ PRs into develop must come from feature/, release/, or hotfix/ branches"
+              exit 1
+            fi
+          fi
+
+          if [[ "$BASE" == "main" ]]; then
+            if [[ ! "$BRANCH" =~ ^(release|hotfix)/ ]]; then
+              echo "❌ PRs into main must come from release/ or hotfix/ branches only"
+              exit 1
+            fi
+          fi
