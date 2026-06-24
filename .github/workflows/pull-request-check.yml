@@ -1,4 +1,4 @@
-name: Branch Naming Check
+name: Branch Naming Check and CI for Pull Requests
 
 on:
   pull_request:
