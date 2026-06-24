@@ -5,7 +5,7 @@ on:
     branches: [develop, main]
 
 jobs:
-  check-branch-name:
+  check_branch_name:
     runs-on: ubuntu-latest
     steps:
       - name: Validate branch name
