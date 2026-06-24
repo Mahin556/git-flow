@@ -11,8 +11,16 @@ jobs:
     environment: production       # can require manual approval in GitHub UI
     steps:
       - name: Deploy to production
-        run: echo "Deploying to production environment"
-      # - name: Deploy to production
-      #   run: ./scripts/deploy.sh production
-      #   env:
-      #     DEPLOY_TOKEN: ${{ secrets.PROD_DEPLOY_TOKEN }}
+        env:
+          ENV_SECRET: ${{ secrets.ENV_SECRET }}
+          ENV_VAR: ${{ vars.ENV_VAR }}
+          REPO_SECRET: ${{ secrets.REPO_SECRET }}
+          REPO_VAR: ${{ vars.REPO_VAR }}
+        run: |
+          echo "Deploying to production environment"
+          echo "$ENV_SECRET"
+          echo "$ENV_VAR"
+          echo "$REPO_VAR"
+          echo "$REPO_SECRET"
+      - name: GITHUB SECRET AUTO MASK - Will show *** in logs
+        run: echo "${{ secrets.ENV_SECRET }}"
