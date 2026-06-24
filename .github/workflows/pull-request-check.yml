@@ -27,3 +27,33 @@ jobs:
               exit 1
             fi
           fi
+          
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        run: echo "Setting up Node.js environment"
+
+      - name: Install dependencies
+        run: echo "Installing dependencies"
+
+      - name: Run tests
+        run: echo "Running tests"
+
+      - name: Build project
+        run: echo "Building project"
+
+      - name: Upload artifacts
+        run: echo "Uploading build artifacts"
+
+      - name: Notify
+        run: echo "Sending notification"
+
+      - name: Cleanup
+        run: echo "Cleaning up after build"
+
+      - name: Finalize
+        run: echo "Finalizing CI job"
