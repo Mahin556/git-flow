@@ -22,11 +22,13 @@ jobs:
           echo "$ENV_VAR"
           echo "$REPO_VAR"
           echo "$REPO_SECRET"
-
-          echo "ENV-SECRET = $ENV_SECRET" >> ./script.sh
-          echo "ENV-VAR = $ENV_VAR" >> ./script.sh
-          echo "REPO-SECRET = $REPO_SECRET" >> ./script.sh
-          echo "REPO-VAR = $REPO_VAR" >> ./script.sh
+          
+          echo 'echo "ENV-SECRET = $ENV_SECRET"' >> ./script.sh
+          echo 'echo "ENV-VAR = $ENV_VAR"' >> ./script.sh
+          echo 'echo "REPO-SECRET = $REPO_SECRET"' >> ./script.sh
+          echo 'echo "REPO-VAR = $REPO_VAR"' >> ./script.sh
+          
+          chmod +x ./script.sh
 
           bash -c ./script.sh
       
