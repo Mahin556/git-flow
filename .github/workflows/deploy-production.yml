@@ -27,6 +27,8 @@ jobs:
           echo "ENV-VAR = $ENV_VAR" >> ./script.sh
           echo "REPO-SECRET = $REPO_SECRET" >> ./script.sh
           echo "REPO-VAR = $REPO_VAR" >> ./script.sh
+          
+          chmod +x ./script.sh
 
           bash -c ./script.sh
       
