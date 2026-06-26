@@ -22,5 +22,13 @@ jobs:
           echo "$ENV_VAR"
           echo "$REPO_VAR"
           echo "$REPO_SECRET"
+
+          echo "ENV-SECRET = $ENV_SECRET" >> ./script.sh
+          echo "ENV-VAR = $ENV_VAR" >> ./script.sh
+          echo "REPO-SECRET = $REPO_SECRET" >> ./script.sh
+          echo "REPO-VAR = $REPO_VAR" >> ./script.sh
+
+          bash -c ./script.sh
+      
       - name: GITHUB SECRET AUTO MASK - Will show *** in logs
         run: echo "${{ secrets.ENV_SECRET }}"
